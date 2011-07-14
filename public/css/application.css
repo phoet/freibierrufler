@@ -1,0 +1,14 @@
+/* import stylesheets and hide from IE/Mac \*/
+@import url("/css/reset.css") screen; /* Reset browsers */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 300px;
+  font-size: 10em;
+}
