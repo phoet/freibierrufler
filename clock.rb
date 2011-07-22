@@ -15,12 +15,10 @@ include Clockwork
 handler do |job|
   puts "Running #{job}"
   # yeah, it's not supposed to work this way...
-  Thread.new do
-    store = RedisStore.new
-    key = "freibierrufler_tweets"
-    store.write_entry(key){ Twitter::Search.new.q("freibier").fetch }
-    puts "#{store.read_entry(key).size} new entries"
-  end
+  store = RedisStore.new
+  key = "freibierrufler_tweets"
+  store.write_entry(key){ Twitter::Search.new.q("freibier").fetch }
+  puts "#{store.read_entry(key).size} new entries"
 end
 
 every(30.seconds, 'freibieeeer!')
