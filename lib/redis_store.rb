@@ -3,7 +3,7 @@ require 'redis'
 
 class RedisStore
   def initialize
-    @redis = Redis.connect(:url => ENV['RAILS_REDIS_CACHE_URL'])
+    @redis = Redis.connect(:url => ENV['RAILS_REDIS_CACHE_URL'] || ENV['REDISTOGO_URL'])
   end
   
   def read_entry(key)
