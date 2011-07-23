@@ -11,9 +11,12 @@
     :javascript
       function showStuff() {
         var lis = $('#tweets li');
-        var hideMe = lis.filter(':visible').first();
-        lis.filter(':hidden').first().fadeIn();
-        hideMe.hide();
+        lis.filter(':visible').first().hide().attr('title', '');
+        var invisibles = lis.filter('[title*="unused"]').filter(':hidden');
+        invisibles.first().fadeIn();
+        if(invisibles.size() == 0) {
+          lis.attr('title', 'unused');
+        }
       }
       $(document).ready(function(){
         setInterval('showStuff()', 3000);
@@ -27,4 +30,5 @@
       #tweets
         %ul
           - @tweets.each_with_index do |tweet, index|
-            %li{:class => index == 0 ? '' : 'hidden'}= tweet.text
+            %li{:class => index == 0 ? '' : 'hidden', :title => 'unused'}
+              %a{:href => "http://twitter.com/#{tweet.from_user}"}= tweet.text

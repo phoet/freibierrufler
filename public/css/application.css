@@ -25,3 +25,7 @@ li {
 .hidden {
   display:none;
 }
+
+a, a:hover, a:active, a:visited {
+  color:black;
+}
