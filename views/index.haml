@@ -1,28 +1,18 @@
-!!! XML
-!!!
+!!! utf-8
 %html
   %head
-    %meta{'http-equiv'=>"content-type", :content=>"text/html; charset=UTF-8"}
-    %meta{'http-equiv'=>"content-language", :content=>"de"}
-    %meta{'http-equiv'=>"language", :content=>"de"}
-    %meta{:name=>"language", :content=>"german, de"}
-    %link{:rel=>'stylesheet', :href=>'/css/application.css', :type=>'text/css'}
-    %script{:src=>"https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", :type => "text/javascript"}
-    :javascript
-      function showStuff() {
-        var lis = $('#tweets li');
-        lis.filter(':visible').first().hide().attr('title', '');
-        var invisibles = lis.filter('[title*="unused"]').filter(':hidden');
-        invisibles.first().fadeIn();
-        if(invisibles.size() == 0) {
-          lis.attr('title', 'unused');
-        }
-      }
-      $(document).ready(function(){
-        setInterval('showStuff()', 3000);
-      });
-    
     %title FREIBIER!
+    
+    %meta{charset: "utf-8"}
+    %meta{name: "description", content: "Freibier!"}
+    %meta{name: "author", content: "Peter Schröder"}
+    %meta{name: "language", content: "german, de"}
+    %meta{http-equiv: "refresh", content: "5; URL=/"}
+    
+    %link{rel: 'stylesheet', href: '/css/application.css', type: 'text/css'}
+    
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", type: "text/javascript"}
+    %script{src: "/js/appliaction.js?#{Time.now.to_i}", type: "text/javascript"}
 
   %body
     %header
