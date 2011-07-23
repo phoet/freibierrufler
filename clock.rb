@@ -12,11 +12,12 @@ end
 
 include Clockwork
 
+STORE = RedisStore.new
+
 handler do |job|
   puts "Running #{job}"
   # yeah, it's not supposed to work this way...
-  store = RedisStore.new
-  store.write{ Twitter::Search.new.q("freibier").fetch }
+  STORE.write{ Twitter::Search.new.q("freibier").fetch }
   puts "#{store.read.size} new entries"
 end
 
