@@ -51,6 +51,7 @@ PLATFORMS
 DEPENDENCIES
   foreman
   haml
+  hashie
   heroku
   redis
   sinatra

@@ -9,21 +9,26 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 300px;
+  margin-top: 2em;
   font-size: 10em;
 }
 
 #tweets {
   text-align:center;
-  margin-top:100px;
-  font-size:4em;
+  margin-top:2em;
+  font-size:3em;
 }
+
 li {
   list-style:none;
 }
 
 .hidden {
   display:none;
+}
+
+.small {
+  font-size:smaller;
 }
 
 a, a:hover, a:active, a:visited {
