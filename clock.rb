@@ -1,6 +1,7 @@
 $:.unshift ::File.join(::File.dirname(__FILE__), 'lib')
-require 'clockwork'
-require 'twitter'
+
+Bundler.require
+
 require 'redis_store'
 
 Twitter.configure do |config|
@@ -18,7 +19,7 @@ handler do |job|
   puts "Running #{job}"
   # yeah, it's not supposed to work this way...
   STORE.write{ Twitter::Search.new.q("freibier").fetch }
-  puts "#{STORE.read.size} new entries"
+  puts "#{STORE.read.size} new beers"
 end
 
 every(300.seconds, 'freibieeeer!')
