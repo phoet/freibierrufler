@@ -18,7 +18,7 @@ handler do |job|
   puts "Running #{job}"
   # yeah, it's not supposed to work this way...
   STORE.write{ Twitter::Search.new.q("freibier").fetch }
-  puts "#{store.read.size} new entries"
+  puts "#{STORE.read.size} new entries"
 end
 
 every(300.seconds, 'freibieeeer!')
