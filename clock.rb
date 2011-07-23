@@ -20,5 +20,5 @@ handler do |job|
   puts "#{store.read.size} new entries"
 end
 
-every(30.seconds, 'freibieeeer!')
+every(300.seconds, 'freibieeeer!')
 
