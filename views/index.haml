@@ -10,9 +10,10 @@
     %meta{'http-equiv' => "refresh", content: "300; URL=/"}
     
     %link{rel: 'stylesheet', href: '/css/application.css', type: 'text/css'}
+    %link{rel: 'shortcut icon', href: '/img/freibier_icon.png'}
     
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", type: "text/javascript"}
-    %script{src: "/js/application.js?#{Time.now.to_i}", type: "text/javascript"}
+    / %script{src: "/js/application.js?#{Time.now.to_i}", type: "text/javascript"}
 
   %body
     %header
@@ -22,7 +23,7 @@
           - @tweets.each_with_index do |tweet, index|
             %li{class: index == 0 ? '' : 'hidden', title: 'unused', 'data-tweet' => tweet}
               %p.small
-                %em
+                %em.bier
                   %a{href: "http://twitter.com/#{tweet.from_user}"}= "#{tweet.from_user} zwitschert:"
               %br
               %p= tweet.text
