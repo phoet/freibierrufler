@@ -3,7 +3,7 @@ var showStuff = function (){
   lis.filter(':visible').first().hide().attr('title', '');
   var invisibles = lis.filter('[title*="unused"]').filter(':hidden');
   invisibles.first().fadeIn();
-  if(invisibles.size() == 0) {
+  if(invisibles.size() <= 1) {
     lis.attr('title', 'unused');
   }
 }

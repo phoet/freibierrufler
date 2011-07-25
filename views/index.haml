@@ -7,7 +7,7 @@
     %meta{name: "description", content: "Freibier!"}
     %meta{name: "author", content: "Peter Schröder"}
     %meta{name: "language", content: "german, de"}
-    %meta{'http-equiv' => "refresh", content: "60; URL=/"}
+    %meta{'http-equiv' => "refresh", content: "300; URL=/"}
     
     %link{rel: 'stylesheet', href: '/css/application.css', type: 'text/css'}
     
@@ -22,9 +22,10 @@
           - @tweets.each_with_index do |tweet, index|
             %li{class: index == 0 ? '' : 'hidden', title: 'unused', 'data-tweet' => tweet}
               %p.small
-                %em= "#{tweet.from_user} zwitschert:"
+                %em
+                  %a{href: "http://twitter.com/#{tweet.from_user}"}= "#{tweet.from_user} zwitschert:"
               %br
-              %a{href: "http://twitter.com/#{tweet.from_user}"}= tweet.text
+              %p= tweet.text
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-2711231-8']);
